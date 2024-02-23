@@ -32,8 +32,8 @@ const DashboardNav = ({ address }) => {
 			<ul className="w-full h-[60px] px-10 flex flex-row justify-start items-center gap-8 bg-[#C80B66]">
 				{[
 					['Dashboard', '/assets/dash-icon.png', '/dashboard'],
-					['Profile', '/assets/user-icon-2.png', ''],
-					['Recent Activities', '/assets/timer-icon.png', ''],
+					['Profile', '/assets/user-icon-2.png', '/user-profile'],
+					['Recent Activities', '/assets/timer-icon.png', '/recent-activities'],
 					['Withdrawals', '/assets/withdraw.png', ''],
 					['Live Events', '/assets/network-icon.png', ''],
 				].map(([list, image, url], index) => (
