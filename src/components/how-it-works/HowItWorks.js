@@ -2,9 +2,9 @@ import Card from '@/shared-components/Card';
 
 const HowItWorks = () => {
 	return (
-		<div className="w-full h-auto m-auto text-white bg-gradient-to-br from-[#12022F] from-55% to-[#BB0BC8]">
+		<div className="w-full mx-auto text-white bg-gradient-to-br from-[#12022F] from-55% to-[#BB0BC8]">
 			<h2 className="text-4xl font-bold text-center mt-7">How It Works</h2>
-			<div className="w-5/6 h-fit m-auto py-10 flex flex-row flex-wrap justify-center items-center gap-9">
+			<div className="w-5/6 mx-auto py-10 flex flex-row flex-wrap justify-center items-center gap-9">
 				<Card
 					title={'Create an Account'}
 					description={'Sign up and connect your wallet.'}
