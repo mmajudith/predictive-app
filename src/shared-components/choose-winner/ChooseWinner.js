@@ -1,10 +1,31 @@
 'use client';
 
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { stake } from '@/redux/features/eSportsReducer';
 
 const ChooseWinner = ({ index }) => {
 	const dispatch = useDispatch();
+	const [ABackground, setABackground] = useState('#1C004E');
+	const [BBackground, setBBackground] = useState('#1C004E');
+
+	const handleABackground = () => {
+		if (ABackground === '#1C004E') {
+			setABackground('#44FF34');
+		}
+		if (ABackground === '#44FF34') {
+			setABackground('#1C004E');
+		}
+	};
+
+	const handleBBackground = () => {
+		if (BBackground === '#1C004E') {
+			setBBackground('#44FF34');
+		}
+		if (BBackground === '#44FF34') {
+			setBBackground('#1C004E');
+		}
+	};
 
 	return (
 		<div className="w-screen h-screen m-auto flex flex-col justify-center items-center fixed inset-0 z-20 bg-black-opacity">
@@ -18,7 +39,11 @@ const ChooseWinner = ({ index }) => {
 							<img src="/assets/rectangle.png" alt="" />
 							<p>Winner</p>
 						</div>
-						<p className="w-[60px] h-[80px] cursor-pointer bg-[#1C004E] font-extrabold text-6xl self-end rounded-xl flex flex-col justify-center items-center border border-[#BB0BC8] border-solid">
+						<p
+							onClick={handleABackground}
+							style={{ backgroundColor: ABackground }}
+							className="w-[60px] h-[80px] cursor-pointer font-extrabold text-6xl self-end rounded-xl flex flex-col justify-center items-center border border-[#BB0BC8] border-solid"
+						>
 							A
 						</p>
 						<div className="flex flex-row justify-start items-center">
@@ -38,7 +63,11 @@ const ChooseWinner = ({ index }) => {
 						<p className="text-sm">
 							Potential Wins : <span className="text-[#44FF34]">$64.05</span>
 						</p>
-						<p className="w-[60px] h-[80px] cursor-pointer ml-4 bg-[#1C004E] font-extrabold text-6xl self-start rounded-xl flex flex-col justify-center items-center border border-[#BB0BC8] border-solid">
+						<p
+							onClick={handleBBackground}
+							style={{ backgroundColor: BBackground }}
+							className="w-[60px] h-[80px] cursor-pointer ml-4 mb-2 font-extrabold text-6xl self-start rounded-xl flex flex-col justify-center items-center border border-[#BB0BC8] border-solid"
+						>
 							B
 						</p>
 						<div className="flex flex-row justify-between items-center">
