@@ -7,11 +7,12 @@ import { initWeb3 } from '@/utils/kit';
 
 const ChooseWinner = ({ index }) => {
 	const { address } = useSelector((state) => state.esportsSlice);
-	console.log(address, 'addreeeee');
+
 	const dispatch = useDispatch();
 	const [ABackground, setABackground] = useState('#1C004E');
 	const [BBackground, setBBackground] = useState('#1C004E');
 	const [coinAmount, setCoinAmount] = useState('');
+	const [disabled, setDisabled] = useState(false);
 
 	const handleABackground = () => {
 		if (ABackground === '#1C004E') {
@@ -35,13 +36,14 @@ const ChooseWinner = ({ index }) => {
 		if (coinAmount.length === 0) {
 			return window.alert('Please enter valid coin amount!');
 		}
-
+		setDisabled(true);
 		let instance = await initWeb3();
 		await instance.methods.stakeTokens(+coinAmount).send({
 			from: address,
 			gasLimit: 280000,
 		});
 		window.alert('coin successfully stake');
+		setDisabled(false);
 	};
 
 	return (
@@ -91,6 +93,7 @@ const ChooseWinner = ({ index }) => {
 						</p>
 						<div className="flex flex-row justify-between items-center">
 							<button
+								disabled={disabled}
 								onClick={handleStake}
 								className="w-[45%] h-[33px] bg-[#C80B66] rounded-lg text-sm"
 							>
