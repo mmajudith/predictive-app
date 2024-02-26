@@ -3,7 +3,7 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "_admin",
+				"name": "_adminAddress",
 				"type": "address"
 			}
 		],
@@ -54,25 +54,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "enum Xenrena.PredictionCategory",
-				"name": "_category",
-				"type": "uint8"
-			}
-		],
-		"name": "createPredictionMarket",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "uint256",
 				"name": "_marketId",
 				"type": "uint256"
@@ -89,22 +70,28 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_admin",
-				"type": "address"
-			}
-		],
-		"name": "removeAdmin",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "message",
+				"type": "string"
+			}
+		],
+		"name": "Notification",
+		"type": "event"
 	},
 	{
 		"anonymous": false,
@@ -118,6 +105,19 @@
 		],
 		"name": "PredictionMarketConcluded",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_adminAddress",
+				"type": "address"
+			}
+		],
+		"name": "removeAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -141,13 +141,8 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_marketId",
+				"name": "_amount",
 				"type": "uint256"
-			},
-			{
-				"internalType": "enum Xenrena.PredictionOutcome",
-				"name": "_prediction",
-				"type": "uint8"
 			}
 		],
 		"name": "stakeTokens",
@@ -156,16 +151,29 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_marketId",
-				"type": "uint256"
-			}
-		],
+		"inputs": [],
 		"name": "withdrawStakedTokens",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "admins",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -428,25 +436,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "isAdmin",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "bytes32",
 				"name": "marketId",
 				"type": "bytes32"
@@ -516,28 +505,12 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "userNotifications",
+		"inputs": [],
+		"name": "thresholdAmount",
 		"outputs": [
 			{
-				"internalType": "string",
-				"name": "message",
-				"type": "string"
-			},
-			{
 				"internalType": "uint256",
-				"name": "timestamp",
+				"name": "",
 				"type": "uint256"
 			}
 		],

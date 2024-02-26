@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setIsAddress } from '@/redux/features/utilitiesReducer';
+import { getAddress } from '@/redux/features/eSportsReducer';
 import { Web3 } from 'web3';
 import RootNav from './root-Nav/RootNav';
 import DashboardNav from './dashboard-nav/DashboardNav';
@@ -21,6 +22,7 @@ const Header = () => {
 
 			const accounts = await web3.eth.getAccounts();
 			setAddress(accounts[0]);
+			dispatch(getAddress(accounts[0]));
 			dispatch(setIsAddress(true));
 		} else {
 			alert('Please add metamask to your browser');

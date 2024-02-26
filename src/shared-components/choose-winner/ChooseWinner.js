@@ -1,13 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { stake } from '@/redux/features/eSportsReducer';
+import { initWeb3 } from '@/utils/kit';
 
 const ChooseWinner = ({ index }) => {
+	const { address } = useSelector((state) => state.esportsSlice);
+	console.log(address, 'addreeeee');
 	const dispatch = useDispatch();
 	const [ABackground, setABackground] = useState('#1C004E');
 	const [BBackground, setBBackground] = useState('#1C004E');
+	const [coinAmount, setCoinAmount] = useState('');
 
 	const handleABackground = () => {
 		if (ABackground === '#1C004E') {
@@ -25,6 +29,19 @@ const ChooseWinner = ({ index }) => {
 		if (BBackground === '#44FF34') {
 			setBBackground('#1C004E');
 		}
+	};
+
+	const handleStake = async () => {
+		if (coinAmount.length === 0) {
+			return window.alert('Please enter valid coin amount!');
+		}
+
+		let instance = await initWeb3();
+		await instance.methods.stakeTokens(+coinAmount).send({
+			from: address,
+			gasLimit: 280000,
+		});
+		window.alert('coin successfully stake');
 	};
 
 	return (
@@ -50,6 +67,8 @@ const ChooseWinner = ({ index }) => {
 							<img src="/assets/color.png" alt="" />
 							<img src="/assets/down-arrow-icon.png" alt="" />
 							<input
+								value={coinAmount}
+								onChange={(e) => setCoinAmount(e.target.value)}
 								type="text"
 								placeholder="Your Bet"
 								className="w-[120px] h-[40px] bg-inherit outline-none text-center rounded border border-[#BB0BC8] border-solid"
@@ -71,7 +90,10 @@ const ChooseWinner = ({ index }) => {
 							B
 						</p>
 						<div className="flex flex-row justify-between items-center">
-							<button className="w-[45%] h-[33px] bg-[#C80B66] rounded-lg text-sm">
+							<button
+								onClick={handleStake}
+								className="w-[45%] h-[33px] bg-[#C80B66] rounded-lg text-sm"
+							>
 								Stake
 							</button>
 							<button

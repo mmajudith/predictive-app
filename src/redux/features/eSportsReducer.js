@@ -5,6 +5,7 @@ import { eSport } from '@/dummy-data/eSport';
 
 const initialState = {
 	esports: eSport,
+	address: '',
 };
 
 export const esportsSlice = createSlice({
@@ -16,10 +17,13 @@ export const esportsSlice = createSlice({
 				index === payload ? { ...esport, isStake: !esport.isStake } : esport
 			);
 		},
+		getAddress: (state, { payload }) => {
+			state.address = payload;
+		},
 	},
 	extraReducers: (builder) => {},
 });
 
-export const { stake } = esportsSlice.actions;
+export const { stake, getAddress } = esportsSlice.actions;
 
 export default esportsSlice.reducer;
