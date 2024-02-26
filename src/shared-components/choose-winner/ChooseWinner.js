@@ -37,13 +37,19 @@ const ChooseWinner = ({ index }) => {
 			return window.alert('Please enter valid coin amount!');
 		}
 		setDisabled(true);
-		let instance = await initWeb3();
-		await instance.methods.stakeTokens(+coinAmount).send({
-			from: address,
-			gasLimit: 280000,
-		});
-		window.alert('coin successfully stake');
-		setDisabled(false);
+		try {
+			let instance = await initWeb3();
+			await instance.methods.stakeTokens(+coinAmount).send({
+				from: address,
+				gasLimit: 280000,
+			});
+			window.alert('coin successfully stake');
+			setDisabled(false);
+		} catch (err) {
+			console.log(err, 'err staking coin');
+			window.alert('err staking coin');
+			setDisabled(false);
+		}
 	};
 
 	return (
