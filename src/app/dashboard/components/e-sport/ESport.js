@@ -111,7 +111,7 @@ const ESport = () => {
 								</p>
 							</div>
 						</div>
-						{sport.isStake && <ChooseWinner />}
+						{sport.isStake && <ChooseWinner index={index} />}
 					</div>
 				))}
 			</div>

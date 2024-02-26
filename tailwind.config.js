@@ -27,6 +27,7 @@ module.exports = {
 				purple: '#603F8B',
 				'purple-dark': '#532F82',
 				'dark-gray': '#383838',
+				'black-opacity': 'hsl(7, 7%, 7%, 20%)',
 			},
 		},
 	},

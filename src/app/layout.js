@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className="max-w-[1440px] w-full h-auto m-auto text-base font-kumbh font-normal bg-white not-italic">
+			<body className="max-w-[1440px] w-full h-auto m-auto relative text-base font-kumbh font-normal bg-white not-italic">
 				<Providers>
 					<Header />
 					{children}
