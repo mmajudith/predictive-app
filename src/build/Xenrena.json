@@ -1,0 +1,629 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_admin",
+				"type": "address"
+			}
+		],
+		"name": "addAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			}
+		],
+		"name": "cancelMarket",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			}
+		],
+		"name": "claimReward",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			}
+		],
+		"name": "closeMarket",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "enum Xenrena.PredictionCategory",
+				"name": "_category",
+				"type": "uint8"
+			}
+		],
+		"name": "createPredictionMarket",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionOutcome",
+				"name": "_actualOutcome",
+				"type": "uint8"
+			}
+		],
+		"name": "distributeRewards",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_admin",
+				"type": "address"
+			}
+		],
+		"name": "removeAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "marketId",
+				"type": "uint256"
+			}
+		],
+		"name": "PredictionMarketConcluded",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionOutcome",
+				"name": "_actualOutcome",
+				"type": "uint8"
+			}
+		],
+		"name": "resolveMarket",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionOutcome",
+				"name": "_prediction",
+				"type": "uint8"
+			}
+		],
+		"name": "stakeTokens",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			}
+		],
+		"name": "withdrawStakedTokens",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketId",
+				"type": "bytes32"
+			}
+		],
+		"name": "getAllParticipants",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			}
+		],
+		"name": "getAllWinners",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "winners",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketId",
+				"type": "bytes32"
+			}
+		],
+		"name": "getMarketCategory",
+		"outputs": [
+			{
+				"internalType": "enum Xenrena.PredictionCategory",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketId",
+				"type": "bytes32"
+			}
+		],
+		"name": "getMarketDetails",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "outcomeA",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "outcomeB",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum Xenrena.MarketStatus",
+				"name": "status",
+				"type": "uint8"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionCategory",
+				"name": "category",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getOpenMarkets",
+		"outputs": [
+			{
+				"internalType": "bytes32[]",
+				"name": "",
+				"type": "bytes32[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getTotalStakedTokens",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getUserOverallPerformance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "totalStakedAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalRewards",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			}
+		],
+		"name": "getUserPredictionHistory",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "stakedAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionOutcome",
+				"name": "predictedOutcome",
+				"type": "uint8"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionOutcome",
+				"name": "actualOutcome",
+				"type": "uint8"
+			},
+			{
+				"internalType": "bool",
+				"name": "rewarded",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getUserPredictions",
+		"outputs": [
+			{
+				"internalType": "bytes32[]",
+				"name": "markets",
+				"type": "bytes32[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "outcomes",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "stakes",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getUserProfile",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "totalStakedAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalRewards",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes32[]",
+				"name": "participatedMarkets",
+				"type": "bytes32[]"
+			},
+			{
+				"internalType": "bytes32[]",
+				"name": "rewardedMarkets",
+				"type": "bytes32[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getUserRewards",
+		"outputs": [
+			{
+				"internalType": "bytes32[]",
+				"name": "markets",
+				"type": "bytes32[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "rewards",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_marketId",
+				"type": "uint256"
+			}
+		],
+		"name": "getUserStakedAmount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "isAdmin",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "marketId",
+				"type": "bytes32"
+			}
+		],
+		"name": "isMarketEligible",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "predictionMarkets",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "concluded",
+				"type": "bool"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionOutcome",
+				"name": "outcome",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalStakeOptionA",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalStakeOptionB",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionCategory",
+				"name": "category",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "userNotifications",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "message",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "userPredictionHistory",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "stakedAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionOutcome",
+				"name": "predictedOutcome",
+				"type": "uint8"
+			},
+			{
+				"internalType": "enum Xenrena.PredictionOutcome",
+				"name": "actualOutcome",
+				"type": "uint8"
+			},
+			{
+				"internalType": "bool",
+				"name": "rewarded",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "userProfiles",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "totalStakedAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalRewards",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "userStakes",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

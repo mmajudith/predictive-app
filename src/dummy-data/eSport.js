@@ -9,6 +9,7 @@ export const eSport = [
 		teamB: 'Team Arrow',
 		teamBIcon: '/assets/team-arrow.png',
 		teamBScore: 2.35,
+		isStake: false,
 	},
 	{
 		gameName: 'Counter-Strike',
@@ -20,6 +21,7 @@ export const eSport = [
 		teamB: 'Team Bounce',
 		teamBIcon: '/assets/team-bounce.png',
 		teamBScore: 3.22,
+		isStake: false,
 	},
 	{
 		gameName: 'Minecraft',
@@ -31,6 +33,7 @@ export const eSport = [
 		teamB: 'Team Gold',
 		teamBIcon: '/assets/gold.png',
 		teamBScore: 3.09,
+		isStake: false,
 	},
 	{
 		gameName: 'Rocket League',
@@ -42,6 +45,7 @@ export const eSport = [
 		teamB: 'Team Arrow',
 		teamBIcon: '/assets/team-arrow.png',
 		teamBScore: 3.67,
+		isStake: false,
 	},
 	{
 		gameName: 'FIFA',
@@ -53,6 +57,7 @@ export const eSport = [
 		teamB: 'Team Global',
 		teamBIcon: '/assets/global.png',
 		teamBScore: 2.26,
+		isStake: false,
 	},
 	{
 		gameName: 'Call of Duty',
@@ -64,5 +69,6 @@ export const eSport = [
 		teamB: 'Team Rex',
 		teamBIcon: '/assets/rex.png',
 		teamBScore: 3.52,
+		isStake: false,
 	},
 ];

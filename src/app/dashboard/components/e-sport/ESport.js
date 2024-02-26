@@ -1,7 +1,14 @@
+'use client';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { stake } from '@/redux/features/eSportsReducer';
 import ESportNews from './epsort-news/ESportNews';
-import { eSport } from '@/dummy-data/eSport';
+import ChooseWinner from '../../../../shared-components/choose-winner/ChooseWinner';
 
 const ESport = () => {
+	const { esports } = useSelector((state) => state.esportsSlice);
+	const dispatch = useDispatch();
+
 	return (
 		<div className="text-white">
 			<p className="text-center text-lg my-7">eSport</p>
@@ -42,7 +49,7 @@ const ESport = () => {
 						</p>
 					))}
 				</div>
-				{eSport.map((sport, index) => (
+				{esports.map((sport, index) => (
 					<div
 						key={index}
 						className="h-[113px] px-7 py-2 my-7 rounded-lg bg-[#12022F] flex flex-row justify-between items-center gap-8"
@@ -96,11 +103,15 @@ const ESport = () => {
 									</div>
 									<img src="/assets/fluent-video.png" alt="" />
 								</div>
-								<p className="w-full h-[30px] bg-[#BB0BC8] rounded flex flex-col justify-center items-center font-medium">
+								<p
+									onClick={() => dispatch(stake(index))}
+									className="w-full h-[30px] bg-[#BB0BC8] rounded flex flex-col justify-center items-center font-medium cursor-pointer"
+								>
 									Stake
 								</p>
 							</div>
 						</div>
+						{sport.isStake && <ChooseWinner />}
 					</div>
 				))}
 			</div>

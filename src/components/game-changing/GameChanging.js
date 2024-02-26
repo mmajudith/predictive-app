@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useSelector } from 'react-redux';
 
 const GameChanging = () => {
@@ -11,9 +13,12 @@ const GameChanging = () => {
 					Enter The Game Changing Experience Of Decentralized Prediction Play.
 				</h1>
 				{isAddress && (
-					<p className="w-[180px] h-[45px] ml-7 rounded-lg bg-gradient-to-t from-[#12022F] to-[#1C004E] text-lg font-medium text-white flex flex-col justify-center items-center">
+					<Link
+						href={'/dashboard'}
+						className="w-[180px] h-[45px] ml-7 rounded-lg bg-gradient-to-t from-[#12022F] to-[#1C004E] text-lg font-medium text-white flex flex-col justify-center items-center"
+					>
 						Start Staking
-					</p>
+					</Link>
 				)}
 			</div>
 		</div>
